@@ -17,5 +17,5 @@ while True:
     time.sleep(300) #Working Timer in seconds
     WiFiOff()
     print(f"{str(datetime.datetime.now())} --- WiFi set to Off")
-    time.sleep(3) #Delay for reloading in seconds
+    time.sleep(6) #Delay for reloading in seconds
     

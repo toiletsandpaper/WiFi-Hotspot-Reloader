@@ -2,9 +2,14 @@ $connectionProfile = [Windows.Networking.Connectivity.NetworkInformation,Windows
 $tetheringManager = [Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager,Windows.Networking.NetworkOperators,ContentType=WindowsRuntime]::CreateFromConnectionProfile($connectionProfile)
  
 # Check whether Mobile Hotspot is enabled
-$tetheringManager.TetheringOperationalState
+if ($tetheringManager.TetheringOperationalState -eq 'InTransition'){
+    Restart-Computer
+}
+else{
  
-# Start Mobile Hotspot
-#Await ($tetheringManager.StartTetheringAsync()) ([Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult])
-
-Await ($tetheringManager.StopTetheringAsync()) ([Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult])
+    # Start Mobile Hotspot
+    #Await ($tetheringManager.StartTetheringAsync()) ([Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult])
+    
+    #Stop Mobile Hotspot
+    Await ($tetheringManager.StopTetheringAsync()) ([Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult])
+}
