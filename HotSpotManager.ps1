@@ -24,7 +24,7 @@ while($true){
     elseif($tetheringManager.TetheringOperationalState -eq 'On'){
 
         # Stop Mobile Hotspot
-        [System.__ComObject]($tetheringManager.StopTetheringAsync())
+        $tetheringManager.StopTetheringAsync()
         Write-Output -Verbose "$(Get-Date) --- Wifi set to Off"
         Start-Sleep -Seconds 7
 
