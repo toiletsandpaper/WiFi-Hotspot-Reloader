@@ -1,1 +1,1 @@
-python wifi-manager.py
+powershell -executionpolicy RemoteSigned -file HotSpotManager.ps1

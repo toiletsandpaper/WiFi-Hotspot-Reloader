@@ -1,7 +1,7 @@
 # WiFi-Hotspot-Reloader
 For reloading the Windows hotspot (it fixes some troubles, like ESP connection stuck)
 
-Just run **autoexec.bat** or **wifi-manager.py**
+Just run **autoexec.bat**
 
 # Autoexecution on startup guide
 1. Download the code and place it in any folder
