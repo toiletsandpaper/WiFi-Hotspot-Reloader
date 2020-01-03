@@ -8,7 +8,7 @@ while($true){
     if ($tetheringManager.TetheringOperationalState -eq 'InTransition'){
         
         # Rebooting PC, because Hotspot may stuck in 'InTransition' state :(
-        Write-Verbose "I will reboot your PC in a few seconds, because Mobile Hotspot is bugging. Kill this window to stop it :)"
+        Write-Output -Verbose "I will reboot your PC in a few seconds, because Mobile Hotspot is bugging. Kill this window to stop it :)"
         Start-Sleep -Seconds 7
         Restart-Computer -Force
 
