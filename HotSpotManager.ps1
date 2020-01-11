@@ -1,6 +1,6 @@
 $connectionProfile = [Windows.Networking.Connectivity.NetworkInformation,Windows.Networking.Connectivity,ContentType=WindowsRuntime]::GetInternetConnectionProfile()
 $tetheringManager = [Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager,Windows.Networking.NetworkOperators,ContentType=WindowsRuntime]::CreateFromConnectionProfile($connectionProfile)
-
+$StartupTimestamp = Get-Date   #* Remember the time, when program started
 
 while($true){
 
@@ -18,7 +18,7 @@ while($true){
  
         #* Start Mobile Hotspot
         $tetheringManager.StartTetheringAsync()
-        Write-Output -Verbose "$(Get-Date) --- Wifi set to On"
+        Write-Output -Verbose "$(Get-Date) --- Wifi set to On              | Startup Time - $StartupTimestamp"
         Start-Sleep -Seconds 600
         
     }
@@ -26,7 +26,7 @@ while($true){
 
         #* Stop Mobile Hotspot
         $tetheringManager.StopTetheringAsync()
-        Write-Output -Verbose "$(Get-Date) --- Wifi set to Off"
+        Write-Output -Verbose "$(Get-Date) --- Wifi set to Off             | Startup Time - $StartupTimestamp"
         Start-Sleep -Seconds 7
 
     }
